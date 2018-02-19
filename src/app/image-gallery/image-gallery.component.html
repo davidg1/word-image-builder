@@ -1,0 +1,16 @@
+
+<div class="container">
+  <div class="row" id="logo-row">
+    <div class="col-xs-12">
+      <h3>Your Image Gallery</h3>
+
+      <h4 *ngIf="storedImages.length === 0">You have not created any images.</h4>
+
+      <div *ngFor="let image of storedImages" class="image-wrap">
+        <img [src]="image" class="img-responsive">
+      </div>
+
+      <a routerLink="/image-creation" role="button" class="btn btn-default">Create Another Word Image</a>
+    </div>
+  </div>
+</div>

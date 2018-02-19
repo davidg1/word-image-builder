@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-offset-2 col-md-8">
+      <form [formGroup]="wordForm" (ngSubmit)="onSubmit()" autocomplete="off">
+        <div>
+          <input type="text" name="words-input" formControlName="wordInput" id="words-input" placeholder="Enter a word...">
+        </div>
+
+        <div *ngIf="!wordForm.valid && !wordForm.pristine" class="alert alert-danger" role="alert">
+          <p [hidden]="!wordForm.controls['wordInput'].hasError('required')">Please enter at least one letter.</p>
+          <p [hidden]="!wordForm.controls['wordInput'].hasError('pattern')">Only letters are permitted with no spaces.</p>
+          <p [hidden]="!wordForm.controls['wordInput'].hasError('maxlength')">The word cannot exceed 10 letters.</p>
+        </div>
+
+        <h4>Preview:</h4>
+
+        <div id="word-preview">
+          <p><img *ngFor="let letterImagePath of letterImagePaths" [src]="letterImagePath"></p>
+        </div>
+
+        <canvas #wordCanvas [width]="wordCanvasWidth" [height]="wordCanvasHeight"></canvas>
+
+        <div>
+          <button type="submit" [disabled]="!wordForm.valid" class="btn btn-default btn-sm">Build Word Image</button>
+        </div>
+      </form>
+
+      <a routerLink="/image-gallery" role="button" class="btn btn-default btn-xs">See Image Gallery</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url('https://fonts.googleapis.com/css?family=Bitter:400,700');
+
+body {
+  background-color: #d1af82;
+  font-family: 'Bitter', serif;
+  color: #744b19;
+}
+
+.row {
+  text-align: center;
+  min-width: 360px;
+}
